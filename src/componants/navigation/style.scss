@@ -1,0 +1,38 @@
+#top-div {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 15dvh;
+  background-color: #465362;
+  transition: 1s;
+}
+
+#bottom-div {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  height: 10dvh;
+  background-color: #465362;
+  transition: 1s;
+
+  button {
+    width: 33%;
+    height: 100%;
+    background-color: #465362;
+  }
+}
+
+.translate-up {
+  transform: translateY(-100%);
+}
+
+.translate-down {
+  transform: translateY(100%);
+}
+
+#toggle {
+  position: absolute;
+  top: 50%;
+}
