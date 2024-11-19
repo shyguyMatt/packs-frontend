@@ -13,7 +13,7 @@ export default function Pack() {
   }, []);
 
   async function getCards() {
-    let url = "https://tcg-api.shyguymatt.com/open_pack"
+    let url = "https://tcg-api.shyguymatt.com/packs/open_pack"
     let response = await fetch(url);
     setCards(await response.json());
   }
