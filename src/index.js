@@ -11,7 +11,7 @@ root.render(
     <BrowserRouter>
       <Navigation />
       <Routes>
-        {/* <Route element={<Pack />} path={'/pack'} /> */}
+        <Route element={<Pack />} path={'/pack'} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
