@@ -2,34 +2,40 @@ import { React, useEffect, useState } from 'react';
 import Card from '../../componants/card';
 
 import './style.scss'
+import { useNavigate } from 'react-router-dom';
 
 export default function Pack() {
-  const [cards, setCards] = useState('loading')
-  let iterator = 1000
+  const [packs, setPacks] = useState('loading')
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getCards()
-    // setCards([205, 213, 215, 207, 209, 216])
+    getPacks()
   }, []);
 
-  async function getCards() {
-    let url = "https://tcg-api.shyguymatt.com/packs/open_pack"
+  async function getPacks() {
+    let url = "https://tcg-api.shyguymatt.com/packs"
     let response = await fetch(url);
-    setCards(await response.json());
+    setPacks(await response.json());
   }
 
-  if (cards === 'loading') {
+  function openPack(e) {
+    // console.log(e.target.value)
+    navigate('/open-pack', { state: { key: e.target.value } })
+  }
+
+  if (packs === 'loading') {
     return(<>Loading...</>)
   }
 
   return (
     <div>
-      <div id='cardSpace'>
-        {cards.map((card) => {
-          iterator--
-          return(<Card id={{card, iterator}}/>)
+      <div>
+        {packs.map((pack) => {
+          return(
+            <button onClick={openPack} value={pack.filename}>{pack.name}</button>
+          )
         })}        
-        <button style={{position: 'absolute', top: '50%', left: '50%'}} onClick={() => window.location.href = '/'}>Return Home</button>
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ export default function Card(props) {
   }, []);
 
   async function getCardInfo() {
-    let url = `https://api.lorcast.com/v0/cards/1/${id}`
+    let url = `https://api.lorcast.com/v0/cards/${id.set}/${id.card}`
     let response = await fetch(url);
     setCardInfo(await response.json());
   }
